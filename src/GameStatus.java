@@ -36,7 +36,7 @@ public class GameStatus {
 			System.out.println(i.toString());
 		}
 		
-		//add more here about equipping items to gear and selling possibly?
+		//add more here about equipping items to gear and selling possibly
 	}
 	
 	public void goToAdventure()
@@ -61,8 +61,13 @@ public class GameStatus {
 		
 			this.adventure.incrementDay();
 		} while(response.compareTo("exit") != 0);
-		
-		
+				
+	}
+	
+	private void displayHomeMessage()
+	{
+		String homeMessage = "Would you like to go on an Adventure, go to the Shop, or go to your Inventory? Type adventure, shop, or inventory. \n";
+		System.out.println(homeMessage);
 	}
 	
 	private void displayShopMessage()

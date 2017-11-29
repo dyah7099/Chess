@@ -13,7 +13,7 @@ public class Game {
 	
 	private void displayHomeMessage()
 	{
-		String homeMessage = "Would you like to go on an Adventure, go to the Shop, or go to your Inventory? Type adventure, shop, or inventory. \n";
+		String homeMessage = "Would you like to go on an Adventure, go to the Shop, or go to your Inventory? Type adventure, shop, inventory, or type quit to exit. \n";
 		System.out.println(homeMessage);
 	}
 	
@@ -76,30 +76,36 @@ public class Game {
 		//needs implementation of DB connection
 	}
 	
-	public void Play(String response)
+	
+	public void Play()
 	{
-		//after initialization, this method will handle the main play of the game including going to shop and adventure
-		//it will call methods from the classes and pass along responsibilities, but will handle the main "loop"
-		
-		if(response.compareTo("shop") == 0)
-		{
-			//go to shop
-			this.status.goToShop();
-		}
-		else if (response.compareTo("adventure") == 0)
-		{
-			//go to adventure			
-			this.status.goToAdventure();
-		}
-		else if (response.compareTo("inventory") == 0)
-		{
-			//go to inventory
-			this.status.goToInventory();
-		}
-		else
-		{
-			//wrong input
-		}
+		String response;
+		//loop allows player to repeatedly go between shop adventure and inventory etc.
+		do {
+			displayHomeMessage();
+			response = getInput();
+			
+			if(response.compareTo("shop") == 0)
+			{
+				//go to shop
+				this.status.goToShop();
+			}
+			else if (response.compareTo("adventure") == 0)
+			{
+				//go to adventure			
+				this.status.goToAdventure();
+			}
+			else if (response.compareTo("inventory") == 0)
+			{
+				//go to inventory
+				this.status.goToInventory();
+			}
+			else
+			{
+				//wrong input
+				
+			}
+		} while(response.compareTo("quit") != 0);
 	}
 	
 	public void Run()
@@ -115,10 +121,7 @@ public class Game {
 			Load();
 		}
 		
-		displayHomeMessage();
-		String response2 = getInput();
-		Play(response2);
-		
+		Play();
 		
 	}
 	
