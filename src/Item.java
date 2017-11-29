@@ -5,6 +5,14 @@ public class Item {
 	private int rarity;
 	private boolean isEquipped;
 	
+	public Item(String _name, int _worth, int _rarity, boolean _isEquipped)
+	{
+		this.name = _name;
+		this.worth = _worth;
+		this.rarity = _rarity;
+		this.isEquipped = _isEquipped;
+	}
+	
 	public String getName()
 	{
 		return this.name;

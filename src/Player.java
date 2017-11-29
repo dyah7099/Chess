@@ -6,6 +6,8 @@ public class Player {
 	private Stats stats;
 	public final String[] names = {"Joffrey", "Tyrion", "Cersei", "Sansa", "Eddard"};
 	
+	
+	
 	public void updatePlayer(Item[] items)
 	{
 		
@@ -24,7 +26,7 @@ public class Player {
 	public void assignRandomName()
 	{
 		
-		int rando = (int) (Math.random()* (names.length + 1));
+		int rando = (int) (Math.random()* (names.length));
 		this.name = names[rando];
 	}
 	

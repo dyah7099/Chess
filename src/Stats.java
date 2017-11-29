@@ -4,6 +4,13 @@ public class Stats {
 	private int xp;
 	private int coins;
 	
+	public Stats(int _notch, int _xp, int _coins)
+	{
+		this.notch = _notch;
+		this.xp = _xp;
+		this.coins = _coins;
+	}
+	
 	public void updateStats(int price)
 	{
 		
