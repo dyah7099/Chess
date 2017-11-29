@@ -1,6 +1,7 @@
+import java.util.ArrayList;
 
 public class AdventureResult {
-	public Item[] loot;
+	public ArrayList<Item> loot;
 	public int coins;
 	public int xp;
 	public boolean death;

@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class GameStatus {
 	private Player player;
@@ -36,6 +39,21 @@ public class GameStatus {
 		//add more here about equipping items to gear and selling possibly?
 	}
 	
+	public void goToAdventure()
+	{
+		Adventure adventure1 = new Adventure();
+		this.adventure = adventure1;
+		this.adventure.setDay(1);
+		String response;
+		do 
+		{
+			this.adventure.goAdventure();
+			this.adventure.displayMessage();
+			response = this.getInput();
+			this.adventure.incrementDay();
+		} while(response.compareTo("exit") != 0);
+	}
+	
 	private void displayShopMessage()
 	{
 		
@@ -46,9 +64,18 @@ public class GameStatus {
 		
 	}
 	
-	private void getInput()
+	private String getInput()
 	{
-		
+		InputStreamReader r=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(r);
+		//tries to read input will throw error if nothing is input
+		try {
+			return br.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "error";
+		}
 	}
 	
 	public Player getPlayer()

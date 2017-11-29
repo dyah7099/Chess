@@ -5,7 +5,7 @@ public class Adventure {
 	
 	public AdventureResult goAdventure()
 	{
-		this.day=0;
+		//this.day=0;
 		adventureResult= new AdventureResult();
 		System.out.println("Off to go adventure");
 		this.doAdventure();
@@ -22,15 +22,34 @@ public class Adventure {
 		System.out.println("coins: "+ adventureResult.coins);
 		System.out.println("xp: "+ adventureResult.xp);
 		
-		System.out.println("Would you like to Continue on another day or Return home? Type continue or return");
 		
 		//placeholder to get rid of error for method not returning anything yet
 		return this.adventureResult;
 	}
 	
+	public void displayMessage()
+	{
+		System.out.println("Would you like to Continue on another day or Return home? Type continue or exit.");
+	}
+	
+	/*public AdventureResult randomizeResult()
+	{
+		//
+	}*/
+	
 	public int getDay()
 	{
 		return this.day;
+	}
+	
+	public void setDay(int _day)
+	{
+		this.day = _day;
+	}
+	
+	public void incrementDay()
+	{
+		this.day++;
 	}
 	
 	public AdventureResult getAdventureResult()

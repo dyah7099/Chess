@@ -88,8 +88,8 @@ public class Game {
 		}
 		else if (response.compareTo("adventure") == 0)
 		{
-			Adventure adventure = new Adventure();
-			adventure.goAdventure();
+			
+			this.status.goToAdventure();
 		}
 		else if (response.compareTo("inventory") == 0)
 		{
