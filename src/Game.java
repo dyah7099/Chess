@@ -80,6 +80,8 @@ public class Game {
 	{
 		//after initialization, this method will handle the main play of the game including going to shop and adventure
 		//it will call methods from the classes and pass along responsibilities, but will handle the main "loop"
+		
+		
 	}
 	
 	public void Run()
