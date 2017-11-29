@@ -47,11 +47,22 @@ public class GameStatus {
 		String response;
 		do 
 		{
-			this.adventure.goAdventure();
-			this.adventure.displayMessage();
+			AdventureResult adventureRes1 = this.adventure.goAdventure();
+			this.player.updatePlayer(adventureRes1.loot, adventureRes1.coins, adventureRes1.xp);
+			
+			//checking to make sure player can be updated by adventure result
+			System.out.println();
+			System.out.println(this.player.getStats().toString());
+			System.out.println();
+			
+			displayAdventureMessage();
 			response = this.getInput();
+				
+		
 			this.adventure.incrementDay();
 		} while(response.compareTo("exit") != 0);
+		
+		
 	}
 	
 	private void displayShopMessage()
@@ -62,6 +73,11 @@ public class GameStatus {
 	private void displayInventoryMessage()
 	{
 		
+	}
+	
+	private void displayAdventureMessage()
+	{
+		System.out.println("Would you like to Continue on another day or Return home? Type continue or exit.");
 	}
 	
 	private String getInput()

@@ -4,7 +4,7 @@ public class Inventory {
 	private ArrayList<Item> items = new ArrayList<Item>();
 	private int maxItems;
 	
-	public void updateInventory(Item[] boughtItems)
+	public void updateInventory(ArrayList<Item> boughtItems)
 	{
 		
 	}

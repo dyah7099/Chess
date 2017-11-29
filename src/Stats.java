@@ -16,9 +16,10 @@ public class Stats {
 		
 	}
 	
-	public void updateStats(int coins, int experience)
+	public void updateStats(int _coins, int _xp)
 	{
-		
+		this.coins += _coins;
+		this.xp += _xp;
 	}
 	
 	public int getNotch()
@@ -34,5 +35,12 @@ public class Stats {
 	public int getCoins()
 	{
 		return this.coins;
+	}
+	
+	public String toString()
+	{
+		return "Notch: " + this.notch + "\n"
+						+ "XP: " + this.xp + "\n"
+						+ "Coins: " + this.coins;
 	}
 }

@@ -18,9 +18,19 @@ public class Item {
 		return this.name;
 	}
 	
+	public void setName(String _name)
+	{
+		this.name = _name;
+	}
+	
 	public int getWorth()
 	{
 		return this.worth;
+	}
+	
+	public void setWorth(int _worth)
+	{
+		this.worth = _worth;
 	}
 	
 	public int getRarity()
@@ -28,9 +38,19 @@ public class Item {
 		return this.rarity;
 	}
 	
+	public void setRarity(int _rarity)
+	{
+		this.rarity = _rarity;
+	}
+	
 	public boolean getIsEquipped()
 	{
 		return this.isEquipped;
+	}
+	
+	public void setIsEquipped(boolean _isEquipped)
+	{
+		this.isEquipped = _isEquipped;
 	}
 	
 	public String toString()

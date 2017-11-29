@@ -88,7 +88,7 @@ public class Game {
 		}
 		else if (response.compareTo("adventure") == 0)
 		{
-			
+			//go to adventure			
 			this.status.goToAdventure();
 		}
 		else if (response.compareTo("inventory") == 0)

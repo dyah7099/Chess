@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Adventure {
 	private int day;
@@ -5,17 +6,17 @@ public class Adventure {
 	
 	public AdventureResult goAdventure()
 	{
-		//this.day=0;
-		adventureResult= new AdventureResult();
-		System.out.println("Off to go adventure");
-		this.doAdventure();
-		
+		System.out.println("Off to go adventure... \n");
+		this.adventureResult = this.doAdventure();
 		
 		return this.adventureResult;
 	}
 	
 	private AdventureResult doAdventure()
 	{
+		this.adventureResult = randomizeResult();
+		
+		//maybe write helper method for printing all of this out
 		System.out.println("Day "+ this.day+ " of your adventure");
 		System.out.println("On your adventure you have collected: ");
 		System.out.println("loot: " + adventureResult.loot);
@@ -27,15 +28,24 @@ public class Adventure {
 		return this.adventureResult;
 	}
 	
-	public void displayMessage()
+	public AdventureResult randomizeResult()
 	{
-		System.out.println("Would you like to Continue on another day or Return home? Type continue or exit.");
+		
+		//HARDCODED FOR TESTING NEED TO ADD RANDOMIZATION
+		AdventureResult adventureResult1 = new AdventureResult();
+		ArrayList<Item> items1 = new ArrayList<Item>();
+		Item item1 = new Item("Matches", 2, 1, false);
+		items1.add(item1);
+		adventureResult1.coins = 1;
+		adventureResult1.xp = 2;
+		adventureResult1.loot = items1;
+		adventureResult1.death = false;
+		
+		//add randomization
+		
+		return adventureResult1;
+		
 	}
-	
-	/*public AdventureResult randomizeResult()
-	{
-		//
-	}*/
 	
 	public int getDay()
 	{
