@@ -13,7 +13,14 @@ public class Game {
 	
 	private void displayHomeMessage()
 	{
-		
+		String homeMessage = "Would you like to go on an Adventure or go to the Shop? Type adventure or shop.";
+		System.out.println(homeMessage);
+	}
+	
+	private void displayInitializationMessage()
+	{
+		System.out.println("Player Name: " + this.status.getPlayer().getName());
+		System.out.println("Player Inventory and Gear are currently empty.");
 	}
 	
 	private String getInput() 
@@ -49,13 +56,14 @@ public class Game {
 		
 		Shop shop1 = new Shop();
 		GameStatus gamestatus1 = new GameStatus(player1, shop1);
+		this.status = gamestatus1;
 	}
+	
 	
 	public void Create()
 	{
-		Player player1 = new Player();
-		player1.assignRandomName();
-		
+		initializeNewGame();
+		displayInitializationMessage();		
 	}
 	
 	public void Load()
