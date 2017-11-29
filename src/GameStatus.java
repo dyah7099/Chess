@@ -17,7 +17,10 @@ public class GameStatus {
 	
 	public void goToShop()
 	{
-		
+		for(Item i : getShop().getItems())
+		{
+			System.out.println(i.toString());
+		}
 	}
 	
 	public void goToInventory()

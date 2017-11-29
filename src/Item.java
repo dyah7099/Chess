@@ -32,4 +32,12 @@ public class Item {
 	{
 		return this.isEquipped;
 	}
+	
+	public String toString()
+	{
+		return  "Item Name: " + this.name + "\n" +
+				"Worth: " + this.worth + "\n" +
+				"Rarity: " + this.rarity + "\n" +
+				"Equipped: " + this.isEquipped + "\n";
+	}
 }
