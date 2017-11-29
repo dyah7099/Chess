@@ -78,6 +78,10 @@ public class Game {
 	
 	public void Play(String response)
 	{
+		if(response.compareTo(response)==0) {
+			Adventure adventure = new Adventure();
+			adventure.goAdventure();
+		}
 		//after initialization, this method will handle the main play of the game including going to shop and adventure
 		//it will call methods from the classes and pass along responsibilities, but will handle the main "loop"
 		
