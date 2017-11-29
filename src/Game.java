@@ -13,7 +13,7 @@ public class Game {
 	
 	private void displayHomeMessage()
 	{
-		String homeMessage = "Would you like to go on an Adventure or go to the Shop? Type adventure or shop. \n";
+		String homeMessage = "Would you like to go on an Adventure, go to the Shop, or go to your Inventory? Type adventure, shop, or inventory. \n";
 		System.out.println(homeMessage);
 	}
 	
@@ -89,6 +89,11 @@ public class Game {
 		else if (response.compareTo("adventure") == 0)
 		{
 			//go on an adventure
+		}
+		else if (response.compareTo("inventory") == 0)
+		{
+			//go to inventory
+			this.status.goToInventory();
 		}
 		else
 		{

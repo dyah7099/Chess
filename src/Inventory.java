@@ -1,6 +1,7 @@
+import java.util.ArrayList;
 
 public class Inventory {
-	private Item[] items;
+	private ArrayList<Item> items = new ArrayList<Item>();
 	private int maxItems;
 	
 	public void updateInventory(Item[] boughtItems)
@@ -8,7 +9,7 @@ public class Inventory {
 		
 	}
 	
-	public Item[] getItems()
+	public ArrayList<Item> getItems()
 	{
 		return this.items;
 	}

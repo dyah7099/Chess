@@ -17,15 +17,20 @@ public class GameStatus {
 	
 	public void goToShop()
 	{
-		for(Item i : getShop().getItems())
+		for(Item i : this.shop.getItems())
 		{
 			System.out.println(i.toString());
 		}
+		
+		//add more here about buying/selling when appropriate
 	}
 	
 	public void goToInventory()
 	{
-		
+		for(Item i : this.player.getInventory().getItems())
+		{
+			System.out.println(i.toString());
+		}
 	}
 	
 	private void displayShopMessage()
