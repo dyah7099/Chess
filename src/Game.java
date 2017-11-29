@@ -35,10 +35,46 @@ public class Game {
 		return this.status;
 	}
 	
-	public void Play()
+	public void initializeNewGame()
+	{
+		Player player1 = new Player();
+		Gear gear1 = new Gear();
+		Inventory inventory1 = new Inventory();
+		Stats stats1 = new Stats();
+		
+		player1.assignRandomName();
+		player1.setGear(gear1);
+		player1.setInventory(inventory1);
+		player1.setStats(stats1);
+		
+		Shop shop1 = new Shop();
+		GameStatus gamestatus1 = new GameStatus(player1, shop1);
+	}
+	
+	public void Create()
+	{
+		Player player1 = new Player();
+		player1.assignRandomName();
+		
+	}
+	
+	public void Load()
+	{
+		
+	}
+	
+	public void Run()
 	{
 		displayFirstMessage();
-		System.out.println(getInput());
+		String response = getInput();
+		if(response.compareTo("create")==0)
+		{
+			Create();
+		}
+		else
+		{
+			Load();
+		}
 	}
 	
 	

@@ -4,6 +4,6 @@ public class Driver {
 	{
 		Game game1 = new Game();
 		
-		game1.Play();
+		game1.Run();
 	}
 }

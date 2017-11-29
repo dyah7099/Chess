@@ -4,6 +4,12 @@ public class GameStatus {
 	private Adventure adventure;
 	private Shop shop;
 	
+	public GameStatus(Player _player, Shop _shop)
+	{
+		this.player = _player;
+		this.shop = _shop;
+	}
+	
 	public void printItems()
 	{
 		
@@ -37,6 +43,11 @@ public class GameStatus {
 	public Player getPlayer()
 	{
 		return this.player;
+	}
+	
+	public void setPlayer(Player _player)
+	{
+		this.player = _player;
 	}
 	
 	public Adventure getAdventure()
