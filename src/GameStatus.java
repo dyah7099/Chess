@@ -17,6 +17,7 @@ public class GameStatus {
 	
 	public void goToShop()
 	{
+		System.out.print("\n");
 		for(Item i : this.shop.getItems())
 		{
 			System.out.println(i.toString());
@@ -31,6 +32,8 @@ public class GameStatus {
 		{
 			System.out.println(i.toString());
 		}
+		
+		//add more here about equipping items to gear and selling possibly?
 	}
 	
 	private void displayShopMessage()
