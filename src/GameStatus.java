@@ -47,18 +47,23 @@ public class GameStatus {
 		String response;
 		do 
 		{
-			AdventureResult adventureRes1 = this.adventure.goAdventure();
-			this.player.updatePlayer(adventureRes1.loot, adventureRes1.coins, adventureRes1.xp);
-			
-			//checking to make sure player can be updated by adventure result
-			System.out.println();
-			System.out.println(this.player.getStats().toString());
-			System.out.println();
-			
-			displayAdventureMessage();
-			response = this.getInput();
+			AdventureResult adventureRes1 = this.adventure.goAdventure(player.getStats().getNotch());
+			if(adventureRes1.death) {
+				System.out.println("On day "+adventure.getDay()+ " you died of hemroids");
+				this.player.resetPlayer();	
+				response="exit";
+			}else {
+				this.player.updatePlayer(adventureRes1.loot, adventureRes1.coins, adventureRes1.xp);
 				
-		
+				//checking to make sure player can be updated by adventure result
+				System.out.println();
+				System.out.println(this.player.getStats().toString());
+				System.out.println();
+				
+				displayAdventureMessage();
+				response = this.getInput();
+			}	
+			
 			this.adventure.incrementDay();
 		} while(response.compareTo("exit") != 0);
 				

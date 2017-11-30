@@ -13,4 +13,9 @@ public class Inventory {
 	{
 		return this.items;
 	}
+
+	public void clear() {
+		items= new ArrayList<Item>();
+		
+	}
 }

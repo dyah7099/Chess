@@ -21,6 +21,11 @@ public class Stats {
 		this.coins += _coins;
 		this.xp += _xp;
 	}
+	public void reset() {
+		this.coins=0;
+		this.xp=0;
+		this.notch=0;		
+	}
 	
 	public int getNotch()
 	{
@@ -43,4 +48,6 @@ public class Stats {
 						+ "XP: " + this.xp + "\n"
 						+ "Coins: " + this.coins;
 	}
+
+
 }

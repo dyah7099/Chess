@@ -4,31 +4,32 @@ public class Adventure {
 	private int day;
 	private AdventureResult adventureResult;
 	
-	public AdventureResult goAdventure()
+	public AdventureResult goAdventure(int notch)
 	{
 		System.out.println("Off to go adventure... \n");
-		this.adventureResult = this.doAdventure();
+		this.adventureResult = this.doAdventure(notch);
 		
 		return this.adventureResult;
 	}
 	
-	private AdventureResult doAdventure()
+	private AdventureResult doAdventure(int notch)
 	{
-		this.adventureResult = randomizeResult();
+		this.adventureResult = randomizeResult(notch);
 		
 		//maybe write helper method for printing all of this out
-		System.out.println("Day "+ this.day+ " of your adventure");
-		System.out.println("On your adventure you have collected: ");
-		System.out.println("loot: " + adventureResult.loot);
-		System.out.println("coins: "+ adventureResult.coins);
-		System.out.println("xp: "+ adventureResult.xp);
-		
+		if(!adventureResult.death) {
+			System.out.println("Day "+ this.day+ " of your adventure");
+			System.out.println("On your adventure you have collected: ");
+			System.out.println("loot: " + adventureResult.loot);
+			System.out.println("coins: "+ adventureResult.coins);
+			System.out.println("xp: "+ adventureResult.xp);
+		}
 		
 		//placeholder to get rid of error for method not returning anything yet
 		return this.adventureResult;
 	}
 	
-	public AdventureResult randomizeResult()
+	public AdventureResult randomizeResult(int notch)
 	{
 		
 		//HARDCODED FOR TESTING NEED TO ADD RANDOMIZATION
@@ -36,12 +37,12 @@ public class Adventure {
 		ArrayList<Item> items1 = new ArrayList<Item>();
 		Item item1 = new Item("Matches", 2, 1, false);
 		items1.add(item1);
-		adventureResult1.coins = 1;
-		adventureResult1.xp = 2;
+		adventureResult1.coins = 1 + (int) Math.random()*this.day/4;;
+		adventureResult1.xp = (int) ((int)2 + Math.random()*this.day/2);
 		adventureResult1.loot = items1;
-		adventureResult1.death = false;
+		adventureResult1.death = Math.random()+(this.day-notch*2)/10>.9 ? true : false;
 		
-		//add randomization
+		//add randomization of items
 		
 		return adventureResult1;
 		

@@ -7,6 +7,12 @@ public class Player {
 	private Stats stats;
 	public final String[] names = {"Joffrey", "Tyrion", "Cersei", "Sansa", "Eddard"};
 	
+	public void resetPlayer()
+	{
+		this.inventory.clear();
+		stats.reset();
+	}
+	
 	
 	//not sure if we need this method?
 	public void updatePlayer(ArrayList<Item> items)
