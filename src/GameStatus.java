@@ -95,16 +95,19 @@ public class GameStatus {
 						equippedItems.add(i);
 					}	
 				}
-				
-				//System.out.println(equippedItems == null);
-				
+								
 				this.player.updatePlayerEquip(equippedItems);
 			}
 			
 		}while(response.compareTo("exit") != 0);
 		
-		//add more here about equipping items to gear and selling possibly
 	}
+	
+	public void seeGear()
+	{
+		this.player.getGear().displayGear();
+	}
+	
 	
 	public void goToAdventure()
 	{
@@ -140,7 +143,7 @@ public class GameStatus {
 	
 	private void displayHomeMessage()
 	{
-		String homeMessage = "Would you like to go on an Adventure, go to the Shop, or go to your Inventory? Type adventure, shop, or inventory. \n";
+		String homeMessage = "Would you like to go on an Adventure, go to the Shop, go to Inventory, or go to Gear? Type adventure, shop, inventory, or gear. \n";
 		System.out.println(homeMessage);
 	}
 	
@@ -149,6 +152,7 @@ public class GameStatus {
 		String shopMessage = "Would you like to buy an item? Type buy or exit. \n";
 		System.out.println(shopMessage);
 	}
+	
 	
 	private void displayBuyMessage()
 	{
@@ -167,7 +171,7 @@ public class GameStatus {
 		String equipMessage = "Enter the name of the item that you would like to equip.";
 		System.out.println(equipMessage);
 	}
-	
+		
 	private void displayAdventureMessage()
 	{
 		String adventureMessage = "Would you like to Continue on another day or return home? Type continue or exit."; 

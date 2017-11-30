@@ -2,14 +2,14 @@
 public class Item {
 	private String name;
 	private int worth;
-	private int rarity;
+	private int strength;
 	private boolean isEquipped;
 	
 	public Item(String _name, int _worth, int _rarity, boolean _isEquipped)
 	{
 		this.name = _name;
 		this.worth = _worth;
-		this.rarity = _rarity;
+		this.strength = _rarity;
 		this.isEquipped = _isEquipped;
 	}
 	
@@ -33,14 +33,14 @@ public class Item {
 		this.worth = _worth;
 	}
 	
-	public int getRarity()
+	public int getStrength()
 	{
-		return this.rarity;
+		return this.strength;
 	}
 	
-	public void setRarity(int _rarity)
+	public void setStrength(int _rarity)
 	{
-		this.rarity = _rarity;
+		this.strength = _rarity;
 	}
 	
 	public boolean getIsEquipped()
@@ -57,7 +57,7 @@ public class Item {
 	{
 		return  "Item Name: " + this.name + "\n" +
 				"Worth: " + this.worth + "\n" +
-				"Rarity: " + this.rarity + "\n" +
+				"strength: " + this.strength + "\n" +
 				"Equipped: " + this.isEquipped + "\n";
 	}
 }
