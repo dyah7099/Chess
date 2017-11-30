@@ -47,18 +47,20 @@ public class GameStatus {
 				{
 					if(response2.compareTo(i.getName()) == 0)
 					{
-						boughtItems.add(i);
-						//this.shop.removeItems(i);
-						//this.player.updatePlayer(i, i.getWorth());
+						if(i.getWorth() < this.player.getStats().getCoins())
+						{
+							boughtItems.add(i);
+						}
+						else
+						{
+							System.out.println("Not enought money to buy " + i.getName() + "\n");
+						}
 					}
 				}
 				
 				this.shop.removeItems(boughtItems);
 				this.player.updatePlayerBuy(boughtItems);
 				
-				
-				System.out.println(this.player.getInventory().toString());
-				//System.out.println(this.player.getInventory().toString());
 			}
 		}while(response.compareTo("exit") != 0);
 		
@@ -114,13 +116,13 @@ public class GameStatus {
 	
 	private void displayShopMessage()
 	{
-		String shopMessage = "Would you like to buy an item? Type buy or exit.";
+		String shopMessage = "Would you like to buy an item? Type buy or exit. \n";
 		System.out.println(shopMessage);
 	}
 	
 	private void displayBuyMessage()
 	{
-		String buyMessage = "What item would you like to buy? Type the item name.";
+		String buyMessage = "What item would you like to buy? Type the item name.\n";
 		System.out.println(buyMessage);
 	}
 	
