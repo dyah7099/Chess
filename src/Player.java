@@ -8,7 +8,6 @@ public class Player {
 	public final String[] names = {"Joffrey", "Tyrion", "Cersei", "Sansa", "Eddard"};
 	
 	
-	//not sure if we need this method?
 	public void updatePlayer(ArrayList<Item> items)
 	{
 		for(Item i : items)
@@ -17,10 +16,22 @@ public class Player {
 		}
 	}
 	
-	public void updatePlayer(ArrayList<Item> items, int price)
+	public void updatePlayerBuy(ArrayList<Item> items)
 	{
 		//increment or decrement items from inventory and according price from stats
+		for(Item i : items)
+		{
+			this.inventory.updateInventory(i);
+			this.stats.updateStats(i.getWorth());
+		}
 		
+	}
+	
+	public void updatePlayer(Item item, int price)
+	{
+		//increment or decrement irems form inventory and according price from stats
+		this.inventory.updateInventory(item);
+		this.stats.updateStats(price);
 	}
 	
 	public void updatePlayer(ArrayList<Item> loot, int coins, int experience)

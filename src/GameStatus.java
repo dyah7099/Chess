@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class GameStatus {
 	private Player player;
@@ -20,13 +21,47 @@ public class GameStatus {
 	
 	public void goToShop()
 	{
-		System.out.print("\n");
-		for(Item i : this.shop.getItems())
-		{
-			System.out.println(i.toString());
-		}
+		String response;
+		String response2;
+		ArrayList<Item> boughtItems = new ArrayList<Item>();
 		
-		//add more here about buying/selling when appropriate
+		//handles buying
+		do
+		{
+			boughtItems.removeAll(boughtItems);
+			System.out.print("\n");
+			for(Item i : this.shop.getItems())
+			{
+				System.out.println(i.toString());
+			}
+			
+			displayShopMessage();
+			response = getInput();
+			
+			if(response.compareTo("buy") == 0)
+			{
+				displayBuyMessage();
+				response2 = getInput();
+				
+				for(Item i : this.shop.getItems() )
+				{
+					if(response2.compareTo(i.getName()) == 0)
+					{
+						boughtItems.add(i);
+						//this.shop.removeItems(i);
+						//this.player.updatePlayer(i, i.getWorth());
+					}
+				}
+				
+				this.shop.removeItems(boughtItems);
+				this.player.updatePlayerBuy(boughtItems);
+				
+				
+				System.out.println(this.player.getInventory().toString());
+				//System.out.println(this.player.getInventory().toString());
+			}
+		}while(response.compareTo("exit") != 0);
+		
 	}
 	
 	public void goToInventory()
@@ -51,7 +86,7 @@ public class GameStatus {
 			this.player.updatePlayer(adventureRes1.loot, adventureRes1.coins, adventureRes1.xp);
 			
 			//checking to make sure player can be updated by adventure result
-			System.out.println();
+			System.out.println("\nCurrent Stats:");
 			System.out.println(this.player.getStats().toString());
 			System.out.println();
 			
@@ -72,7 +107,14 @@ public class GameStatus {
 	
 	private void displayShopMessage()
 	{
-		
+		String shopMessage = "Would you like to buy an item? Type buy or exit.";
+		System.out.println(shopMessage);
+	}
+	
+	private void displayBuyMessage()
+	{
+		String buyMessage = "What item would you like to buy? Type the item name.";
+		System.out.println(buyMessage);
 	}
 	
 	private void displayInventoryMessage()
