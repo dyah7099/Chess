@@ -35,7 +35,6 @@ public class Game {
 		try {
 			return br.readLine();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "error";
 		}

@@ -11,11 +11,13 @@ public class Stats {
 		this.coins = _coins;
 	}
 	
+	//for when player buys/sells something
 	public void updateStats(int price)
 	{
-		
+		this.coins -= price;
 	}
 	
+	//for after an adventure
 	public void updateStats(int _coins, int _xp)
 	{
 		this.coins += _coins;

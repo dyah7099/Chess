@@ -7,18 +7,28 @@ public class Shop {
 	
 	public Shop()
 	{
-		items.add(new Item("Hammer", 10, 2, false));
-		items.add(new Item("Sheild", 15, 4, false));
-		items.add(new Item("Boots", 7, 1, false));
-		items.add(new Item("Dagger", 20, 3, false));
+		//hard coded for now just to have a few things in the shop
+		//possibly write a helper method
+		items.add(new Item("Hammer", 2, 2, false));
+		items.add(new Item("Sheild", 2, 4, false));
+		items.add(new Item("Boots", 2, 1, false));
+		items.add(new Item("Dagger", 2, 3, false));
 	}
 	
-	public void removeItems(Item[] boughtItems)
+	public void removeItems(ArrayList<Item> boughtItems)
 	{
-		
+		for(Item i : boughtItems)
+		{
+			items.remove(i);
+		}
 	}
 	
-	public void addItems(Item[] soldItems)
+	public void removeItems(Item boughtItem)
+	{
+		this.items.remove(boughtItem);
+	}
+	
+	public void addItems(ArrayList<Item> soldItems)
 	{
 		
 	}
