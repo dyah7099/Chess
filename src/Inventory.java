@@ -2,13 +2,17 @@ import java.util.ArrayList;
 
 public class Inventory {
 	private ArrayList<Item> items = new ArrayList<Item>();
-	private int maxItems;
 	
-	public void updateInventory(ArrayList<Item> boughtItems)
+	//removing when adding to gear
+	public void updateInventory(ArrayList<Item> equippedItems)
 	{
-		
+		for(Item i : equippedItems)
+		{
+			items.remove(i);
+		}
 	}
 	
+	//adding to inventory when buying
 	public void updateInventory(Item item)
 	{
 		this.items.add(item);

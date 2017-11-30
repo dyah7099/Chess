@@ -62,16 +62,46 @@ public class GameStatus {
 				this.player.updatePlayerBuy(boughtItems);
 				
 			}
+			else
+			{
+				System.out.println("Enter a valid selection");
+			}
 		}while(response.compareTo("exit") != 0);
 		
 	}
 	
 	public void goToInventory()
 	{
-		for(Item i : this.player.getInventory().getItems())
+		String response;
+		ArrayList<Item> equippedItems = new ArrayList<Item>();
+		do
 		{
-			System.out.println(i.toString());
-		}
+			for(Item i : this.player.getInventory().getItems())
+			{
+				System.out.println(i.toString());
+			}
+			
+			displayInventoryMessage();
+			response = getInput();
+			
+			if(response.compareTo("equip") == 0)
+			{
+				displayEquipMessage();
+				String response2 = getInput();
+				for(Item i : this.player.getInventory().getItems())
+				{
+					if(response2.compareTo(i.getName()) == 0)
+					{
+						equippedItems.add(i);
+					}	
+				}
+				
+				//System.out.println(equippedItems == null);
+				
+				this.player.updatePlayerEquip(equippedItems);
+			}
+			
+		}while(response.compareTo("exit") != 0);
 		
 		//add more here about equipping items to gear and selling possibly
 	}
@@ -128,12 +158,20 @@ public class GameStatus {
 	
 	private void displayInventoryMessage()
 	{
-		
+		String inventoryMessage = "Would you like to equip an item or return home? Type equip or exit.";
+		System.out.println(inventoryMessage);
+	}
+	
+	private void displayEquipMessage()
+	{
+		String equipMessage = "Enter the name of the item that you would like to equip.";
+		System.out.println(equipMessage);
 	}
 	
 	private void displayAdventureMessage()
 	{
-		System.out.println("Would you like to Continue on another day or Return home? Type continue or exit.");
+		String adventureMessage = "Would you like to Continue on another day or return home? Type continue or exit."; 
+		System.out.println(adventureMessage);
 	}
 	
 	private String getInput()

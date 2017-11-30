@@ -33,11 +33,10 @@ public class Player {
 		
 	}
 	
-	public void updatePlayer(Item item, int price)
+	public void updatePlayerEquip(ArrayList<Item> equippedItems)
 	{
-		//increment or decrement irems form inventory and according price from stats
-		this.inventory.updateInventory(item);
-		this.stats.updateStats(price);
+		this.inventory.updateInventory(equippedItems);
+		this.gear.updateGear(equippedItems);
 	}
 	
 	public void updatePlayer(ArrayList<Item> loot, int coins, int experience)

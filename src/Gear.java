@@ -1,14 +1,30 @@
+import java.util.ArrayList;
 
 public class Gear {
-	private Item[] items;
+	private ArrayList<Item> items = new ArrayList<Item>();
+	private int maxItems;
 	
-	public void updateGear(Item[] items)
+	public void updateGear(ArrayList<Item> equippedItems)
 	{
-		
+		for(Item i : equippedItems)
+		{
+			items.add(i);
+		}
 	}
 	
-	public Item[] getItems()
+	public ArrayList<Item> getItems()
 	{
 		return this.items;
+	}
+	
+	public String toString()
+	{
+		String final_ = "";
+		for(Item i : this.items)
+		{
+			final_ += i.getName() + "\n";
+		}
+		
+		return final_;
 	}
 }

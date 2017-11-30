@@ -23,11 +23,6 @@ public class Shop {
 		}
 	}
 	
-	public void removeItems(Item boughtItem)
-	{
-		this.items.remove(boughtItem);
-	}
-	
 	public void addItems(ArrayList<Item> soldItems)
 	{
 		
