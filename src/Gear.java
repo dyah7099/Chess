@@ -25,7 +25,7 @@ public class Gear {
 			gear += i.toString();
 		}
 		
-		gear += "\n Strength: " + getStrength(this.items);
+		gear += "\nStrength: " + getStrength(this.items);
 		
 		System.out.println(gear);
 	}

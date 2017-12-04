@@ -57,7 +57,7 @@ public class Item {
 	{
 		return  "Item Name: " + this.name + "\n" +
 				"Worth: " + this.worth + "\n" +
-				"strength: " + this.strength + "\n" +
+				"Strength: " + this.strength + "\n" +
 				"Equipped: " + this.isEquipped + "\n";
 	}
 }

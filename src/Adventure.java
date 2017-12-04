@@ -6,7 +6,7 @@ public class Adventure {
 	
 	public AdventureResult goAdventure(int notch)
 	{
-		System.out.println("Off to go adventure... \n");
+		System.out.println(" \nOff to go adventure... \n");
 		this.adventureResult = this.doAdventure(notch);
 		
 		return this.adventureResult;
@@ -25,7 +25,6 @@ public class Adventure {
 			System.out.println("xp: "+ adventureResult.xp);
 		}
 		
-		//placeholder to get rid of error for method not returning anything yet
 		return this.adventureResult;
 	}
 	
