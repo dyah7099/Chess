@@ -120,7 +120,9 @@ public class GameStatus {
 
 			AdventureResult adventureRes1 = this.adventure.goAdventure(player.getStats().getNotch());
 			if(adventureRes1.death) {
-				System.out.println("On day "+adventure.getDay()+ " you died of hemroids");
+				System.out.println("On day "+ adventure.getDay() + adventure.randomizeDeath());
+				System.out.println("Your character has been reset. \n");
+				//add a call to geatDeath() here to randomly select a way of dying
 				this.player.resetPlayer();	
 				response="exit";
 			}else {
@@ -156,25 +158,25 @@ public class GameStatus {
 	
 	private void displayBuyMessage()
 	{
-		String buyMessage = "What item would you like to buy? Type the item name.\n";
+		String buyMessage = "\nWhat item would you like to buy? Type the item name.\n";
 		System.out.println(buyMessage);
 	}
 	
 	private void displayInventoryMessage()
 	{
-		String inventoryMessage = "Would you like to equip an item or return home? Type equip or exit.";
+		String inventoryMessage = "\nWould you like to equip an item or return home? Type equip or exit.\n";
 		System.out.println(inventoryMessage);
 	}
 	
 	private void displayEquipMessage()
 	{
-		String equipMessage = "Enter the name of the item that you would like to equip.";
+		String equipMessage = "\nEnter the name of the item that you would like to equip.\n";
 		System.out.println(equipMessage);
 	}
 		
 	private void displayAdventureMessage()
 	{
-		String adventureMessage = "Would you like to Continue on another day or return home? Type continue or exit."; 
+		String adventureMessage = "\nWould you like to Continue on another day or return home? Type continue or exit.\n"; 
 		System.out.println(adventureMessage);
 	}
 	

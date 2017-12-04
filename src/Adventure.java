@@ -47,6 +47,20 @@ public class Adventure {
 		
 	}
 	
+	public String randomizeDeath()
+	{	
+		ArrayList<String> deaths = new ArrayList<String>();
+		deaths.add(" you died of hemorrhoids");
+		deaths.add(" you got attacked by a bear and died");
+		deaths.add(" you stubbed your toe, contracted gangrene, and died.");
+		deaths.add(" you were kicked by an angry donkey and died.");
+		deaths.add(" you ate a poison berry, threw up and became so dehydrated that you died.");
+		
+		int randomIndex = (int) ((Math.random() * deaths.size()));
+		
+		return deaths.get(randomIndex);
+	}
+	
 	public int getDay()
 	{
 		return this.day;
