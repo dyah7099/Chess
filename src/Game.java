@@ -50,8 +50,7 @@ public class Game {
 		Player player1 = new Player();
 		Gear gear1 = new Gear();
 		Inventory inventory1 = new Inventory();
-		Stats stats1 = new Stats(0, 0, 0);
-		
+		Stats stats1 = new Stats(1, 0, 0);
 		player1.assignRandomName();
 		player1.setGear(gear1);
 		player1.setInventory(inventory1);

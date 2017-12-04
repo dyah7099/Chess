@@ -140,7 +140,8 @@ public class GameStatus {
 			
 			this.adventure.incrementDay();
 		} while(response.compareTo("exit") != 0);
-				
+		player.updateNotch();
+		System.out.println("You are now at notch "+ this.player.getStats().getNotch());		
 	}
 	
 	private void displayHomeMessage()

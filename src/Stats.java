@@ -11,6 +11,14 @@ public class Stats {
 		this.coins = _coins;
 	}
 	
+	public void updateNotch()
+	{
+		while(this.xp>notch*10) {
+			this.xp=this.xp-notch*10;
+			notch+=1;
+		}
+	}
+	
 	//for when player buys/sells something
 	public void updateStats(int price)
 	{
@@ -27,7 +35,7 @@ public class Stats {
 	public void reset() {
 		this.coins=0;
 		this.xp=0;
-		this.notch=0;		
+		this.notch=1;		
 	}
 	
 	public int getNotch()

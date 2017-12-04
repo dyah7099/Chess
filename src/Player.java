@@ -7,6 +7,11 @@ public class Player {
 	private Stats stats;
 	public final String[] names = {"Joffrey", "Tyrion", "Cersei", "Sansa", "Eddard"};
 	
+	public void updateNotch()
+	{
+		stats.updateNotch();
+	}
+	
 	public void resetPlayer()
 	{
 		this.inventory.clear();
