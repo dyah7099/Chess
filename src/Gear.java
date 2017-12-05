@@ -12,6 +12,11 @@ public class Gear {
 		}
 	}
 	
+	public void resetGear() 
+	{
+		items= new ArrayList<Item>();
+	}
+	
 	public ArrayList<Item> getItems()
 	{
 		return this.items;
@@ -25,13 +30,14 @@ public class Gear {
 			gear += i.toString();
 		}
 		
-		gear += "\nStrength: " + getStrength(this.items);
+		gear += "\nStrength: " + getStrength();
 		
 		System.out.println(gear);
 	}
 	
-	public int getStrength(ArrayList<Item> _items)
+	public int getStrength()
 	{
+		ArrayList<Item> _items = this.items;
 		int strength = 0;
 		for(Item i : _items)
 		{

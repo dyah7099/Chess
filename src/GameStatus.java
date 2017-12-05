@@ -118,7 +118,7 @@ public class GameStatus {
 		do 
 		{
 
-			AdventureResult adventureRes1 = this.adventure.goAdventure(player.getStats().getNotch());
+			AdventureResult adventureRes1 = this.adventure.goAdventure(player.getStats().getNotch(), this.player.getGear().getStrength());
 			if(adventureRes1.death) {
 				System.out.println("On day "+ adventure.getDay() + adventure.randomizeDeath());
 				System.out.println("Your character has been reset. \n");
@@ -152,7 +152,7 @@ public class GameStatus {
 	
 	private void displayShopMessage()
 	{
-		String shopMessage = "Would you like to buy an item? Type buy or exit. \n";
+		String shopMessage = "You have "+this.player.getStats().getCoins()+" coins\nWould you like to buy an item? Type buy or exit. \n";
 		System.out.println(shopMessage);
 	}
 	

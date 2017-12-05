@@ -4,17 +4,17 @@ public class Adventure {
 	private int day;
 	private AdventureResult adventureResult;
 	
-	public AdventureResult goAdventure(int notch)
+	public AdventureResult goAdventure(int notch, int strength)
 	{
 		System.out.println(" \nOff to go adventure... \n");
-		this.adventureResult = this.doAdventure(notch);
+		this.adventureResult = this.doAdventure(notch, strength);
 		
 		return this.adventureResult;
 	}
 	
-	private AdventureResult doAdventure(int notch)
+	private AdventureResult doAdventure(int notch, int strength)
 	{
-		this.adventureResult = randomizeResult(notch);
+		this.adventureResult = randomizeResult(notch, strength);
 		
 		//maybe write helper method for printing all of this out
 		if(!adventureResult.death) {
@@ -28,7 +28,7 @@ public class Adventure {
 		return this.adventureResult;
 	}
 	
-	public AdventureResult randomizeResult(int notch)
+	public AdventureResult randomizeResult(int notch, int strength)
 	{
 		
 		//HARDCODED FOR TESTING NEED TO ADD RANDOMIZATION
@@ -39,7 +39,7 @@ public class Adventure {
 		adventureResult1.coins = 1 + (int) Math.random()*this.day/4;;
 		adventureResult1.xp = (int) ((int)2 + Math.random()*this.day/2);
 		adventureResult1.loot = items1;
-		adventureResult1.death = Math.random()+(this.day-notch*2)/10>.9 ? true : false;
+		adventureResult1.death = Math.random()+(this.day-notch*2-strength)/10>.9 ? true : false;
 		
 		//add randomization of items
 		

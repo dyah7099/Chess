@@ -13,7 +13,7 @@ public class Stats {
 	
 	public void updateNotch()
 	{
-		while(this.xp>notch*10) {
+		while(this.xp>=notch*10) {
 			this.xp=this.xp-notch*10;
 			notch+=1;
 		}

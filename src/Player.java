@@ -16,6 +16,7 @@ public class Player {
 	{
 		this.inventory.clear();
 		stats.reset();
+		gear.resetGear();
 	}
 	
 	
