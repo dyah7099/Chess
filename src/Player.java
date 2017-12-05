@@ -28,6 +28,13 @@ public class Player {
 		}
 	}
 	
+	public void updatePlayerSell(Item item)
+	{
+		this.stats.updateStats(-item.getWorth());
+		this.inventory.removeFromInventory(item);
+		
+	}
+	
 	public void updatePlayerBuy(ArrayList<Item> items)
 	{
 		//increment or decrement items from inventory and according price from stats

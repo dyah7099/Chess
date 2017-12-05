@@ -18,6 +18,11 @@ public class Inventory {
 		this.items.add(item);
 	}
 	
+	//remove item when selling
+	public void removeFromInventory(Item item) {
+		this.items.remove(item);
+	}
+	
 	public ArrayList<Item> getItems()
 	{
 		return this.items;

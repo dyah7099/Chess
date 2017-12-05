@@ -98,6 +98,20 @@ public class GameStatus {
 								
 				this.player.updatePlayerEquip(equippedItems);
 			}
+			else if(response.compareTo("sell") == 0)
+			{
+				displaySellMessage();
+				String response3 = getInput();
+				for(Item i : this.player.getInventory().getItems())
+				{
+					if(response3.compareTo(i.getName()) == 0)
+					{
+						player.updatePlayerSell(i);
+						shop.addItems(i);
+						break;
+					}	
+				}
+			}
 			
 		}while(response.compareTo("exit") != 0);
 		
@@ -165,7 +179,7 @@ public class GameStatus {
 	
 	private void displayInventoryMessage()
 	{
-		String inventoryMessage = "\nWould you like to equip an item or return home? Type equip or exit.\n";
+		String inventoryMessage = "\nWould you like to equip an item, sell an item, or return home? Type equip, sell, or exit.\n";
 		System.out.println(inventoryMessage);
 	}
 	
@@ -173,6 +187,12 @@ public class GameStatus {
 	{
 		String equipMessage = "\nEnter the name of the item that you would like to equip.\n";
 		System.out.println(equipMessage);
+	}
+	
+	private void displaySellMessage()
+	{
+		String sellMessage = "\nEnter the name of the item that you would like to sell.\n";
+		System.out.println(sellMessage);
 	}
 		
 	private void displayAdventureMessage()

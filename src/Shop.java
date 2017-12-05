@@ -23,9 +23,9 @@ public class Shop {
 		}
 	}
 	
-	public void addItems(ArrayList<Item> soldItems)
+	public void addItems(Item soldItem)
 	{
-		
+		items.add(soldItem);
 	}
 	
 	public void exit()
