@@ -3,19 +3,19 @@ import java.util.ArrayList;
 public class Adventure {
 	private int day;
 	private AdventureResult adventureResult;
-	
+
 	public AdventureResult goAdventure(int notch, int strength)
 	{
 		System.out.println(" \nOff to go adventure... \n");
 		this.adventureResult = this.doAdventure(notch, strength);
-		
+
 		return this.adventureResult;
 	}
-	
+
 	private AdventureResult doAdventure(int notch, int strength)
 	{
 		this.adventureResult = randomizeResult(notch, strength);
-		
+
 		//maybe write helper method for printing all of this out
 		if(!adventureResult.death) {
 			System.out.println("Day "+ this.day+ " of your adventure");
@@ -24,58 +24,82 @@ public class Adventure {
 			System.out.println("coins: "+ adventureResult.coins);
 			System.out.println("xp: "+ adventureResult.xp);
 		}
-		
+
 		return this.adventureResult;
 	}
-	
+
+	private ArrayList<Item> randomLoot(int notch){
+		ArrayList<Item> possibleLoot = new ArrayList<Item>();
+		Item item1 = new Item("Matches", 2, 1, false);
+		Item item2 = new Item("Bones", 1, 1, false);
+		Item item3 = new Item("Shiny Fork", 10, 4, false);
+		Item item4 = new Item("Fancy Rock", 21, 7, false);
+		Item item5 = new Item("Comically Large Knife", 45, 11, false);
+		possibleLoot.add(item1);
+		possibleLoot.add(item2);
+		possibleLoot.add(item3);
+		possibleLoot.add(item4);
+		possibleLoot.add(item5);
+
+		ArrayList<Item> actualLoot = new ArrayList<Item>();
+		for(int i = 0; i < possibleLoot.size(); i++){
+			Item currentItem = possibleLoot.get(i);
+			int weight = Math.abs(currentItem.getStrength() - notch/4) + 5;
+			for(int j = 0; j < 10*(notch%4); j++){
+				if (Math.random() < 1.0/(double)weight){
+					actualLoot.add(currentItem);
+				}
+			}
+		}
+		return actualLoot;
+	}
+
 	public AdventureResult randomizeResult(int notch, int strength)
 	{
-		
+
 		//HARDCODED FOR TESTING NEED TO ADD RANDOMIZATION
 		AdventureResult adventureResult1 = new AdventureResult();
-		ArrayList<Item> items1 = new ArrayList<Item>();
-		Item item1 = new Item("Matches", 2, 1, false);
-		items1.add(item1);
-		adventureResult1.coins = 1 + (int) Math.random()*this.day/4;;
-		adventureResult1.xp = (int) ((int)2 + Math.random()*this.day/2);
+		ArrayList<Item> items1 = randomLoot(notch);
+		adventureResult1.coins = (int)(5 * Math.random() + 5) * this.day/4; //5-9 coins per 4 days
+		adventureResult1.xp = (int)(2 * Math.random() + 2) * this.day/4; //2-3 xp per 2 days
 		adventureResult1.loot = items1;
 		adventureResult1.death = Math.random()+(this.day-notch*2-strength)/10>.9 ? true : false;
-		
+
 		//add randomization of items
-		
+
 		return adventureResult1;
-		
+
 	}
-	
+
 	public String randomizeDeath()
-	{	
+	{
 		ArrayList<String> deaths = new ArrayList<String>();
 		deaths.add(" you died of hemorrhoids");
 		deaths.add(" you got attacked by a bear and died");
 		deaths.add(" you stubbed your toe, contracted gangrene, and died.");
 		deaths.add(" you were kicked by an angry donkey and died.");
 		deaths.add(" you ate a poison berry, threw up and became so dehydrated that you died.");
-		
+
 		int randomIndex = (int) ((Math.random() * deaths.size()));
-		
+
 		return deaths.get(randomIndex);
 	}
-	
+
 	public int getDay()
 	{
 		return this.day;
 	}
-	
+
 	public void setDay(int _day)
 	{
 		this.day = _day;
 	}
-	
+
 	public void incrementDay()
 	{
 		this.day++;
 	}
-	
+
 	public AdventureResult getAdventureResult()
 	{
 		return this.adventureResult;

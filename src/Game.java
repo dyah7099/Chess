@@ -3,20 +3,20 @@ import java.io.*;
 
 public class Game {
 	private GameStatus status;
-	
-	
+
+
 	private void displayFirstMessage()
 	{
 		String firstMessage = "Hello, welcome to Notches. Would you like to create a new game or load a saved game? Type create or load. \n";
 		System.out.println(firstMessage);
 	}
-	
+
 	private void displayHomeMessage()
 	{
 		String homeMessage = "Would you like to go on an Adventure, go to the Shop, go to your Inventory, or go to your Gear?? Type adventure, shop, inventory, gear, or type quit to exit. \n";
 		System.out.println(homeMessage);
 	}
-	
+
 	private void displayInitializationMessage()
 	{
 		//New Game has been created, initial player information is displayed
@@ -26,8 +26,8 @@ public class Game {
 		System.out.println("Coins: " + this.status.getPlayer().getStats().getCoins());
 		System.out.println("Player Inventory and Gear are currently empty.\n");
 	}
-	
-	private String getInput() 
+
+	private String getInput()
 	{
 		InputStreamReader r=new InputStreamReader(System.in);
 		BufferedReader br=new BufferedReader(r);
@@ -39,12 +39,12 @@ public class Game {
 			return "error";
 		}
 	}
-	
+
 	public GameStatus getStatus()
 	{
 		return this.status;
 	}
-	
+
 	public void initializeNewGame()
 	{
 		Player player1 = new Player();
@@ -55,26 +55,26 @@ public class Game {
 		player1.setGear(gear1);
 		player1.setInventory(inventory1);
 		player1.setStats(stats1);
-		
+
 		Shop shop1 = new Shop();
 		GameStatus gamestatus1 = new GameStatus(player1, shop1);
 		//give the game is game status encompassing player (and all details), and shop, no adventure yet
 		this.status = gamestatus1;
 	}
-	
-	
+
+
 	public void Create()
 	{
 		initializeNewGame();
-		displayInitializationMessage();		
+		displayInitializationMessage();
 	}
-	
+
 	public void Load()
 	{
 		//needs implementation of DB connection
 	}
-	
-	
+
+
 	public void Play()
 	{
 		String response;
@@ -82,7 +82,7 @@ public class Game {
 		do {
 			displayHomeMessage();
 			response = getInput();
-			
+
 			if (response.compareTo("shop") == 0)
 			{
 				//go to shop
@@ -90,7 +90,7 @@ public class Game {
 			}
 			else if (response.compareTo("adventure") == 0)
 			{
-				//go to adventure			
+				//go to adventure
 				this.status.goToAdventure();
 			}
 			else if (response.compareTo("inventory") == 0)
@@ -105,27 +105,37 @@ public class Game {
 			else
 			{
 				//wrong input
-				
+				String errorMessage = "I do not recognize that input";
+				System.out.println(errorMessage);
 			}
 		} while(response.compareTo("quit") != 0);
 	}
-	
+
 	public void Run()
 	{
 		displayFirstMessage();
-		String response = getInput();
-		if(response.compareTo("create")==0)
-		{
-			Create();
-		}
-		else
-		{
-			Load();
-		}
-		
+		do {
+			String response = getInput();
+			boolean properInput = true;
+			if(response.compareTo("create")==0)
+			{
+				Create();
+			}
+			else if(response.compareTo("load")==0)
+			{
+				Load();
+			}
+			else
+			{
+				String errorMessage = "I do not recognize that input";
+				System.out.println(errorMessage);
+				properInput = false;
+			}
+		} while(!properInput);
+
 		Play();
-		
+
 	}
-	
-	
+
+
 }
