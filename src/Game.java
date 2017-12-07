@@ -1,4 +1,6 @@
 import java.io.*;
+import java.sql.*;
+import java.util.ArrayList;
 
 
 public class Game {
@@ -38,6 +40,24 @@ public class Game {
 			e.printStackTrace();
 			return "error";
 		}
+	}
+
+	public ArrayList<Item> loadItems()
+	{
+		ArrayList<Item> items = new ArrayList<Item>();
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Notches","root","root");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Items");
+			while(rs.next()){
+				items.add(new Item(rs.getString(2),rs.getInt(3),rs.getInt(4),false));
+			}
+			con.close();
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return items;
 	}
 
 	public GameStatus getStatus()
@@ -114,9 +134,10 @@ public class Game {
 	public void Run()
 	{
 		displayFirstMessage();
+		boolean properInput;
 		do {
 			String response = getInput();
-			boolean properInput = true;
+			properInput = true;
 			if(response.compareTo("create")==0)
 			{
 				Create();
@@ -137,5 +158,12 @@ public class Game {
 
 	}
 
+	public static void main(String[] args){
+		Game g = new Game();
+		ArrayList<Item> items = g.loadItems();
+		for(int i = 0; i < items.size(); i++){
+			System.out.println(items.get(i));
+		}
+	}
 
 }

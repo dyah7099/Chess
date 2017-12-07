@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+//import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 public class Shop {
 	private ArrayList<Item> items = new ArrayList<Item>();
-	
+
 	public Shop()
 	{
 		//hard coded for now just to have a few things in the shop
@@ -14,7 +14,7 @@ public class Shop {
 		items.add(new Item("Boots", 2, 1, false));
 		items.add(new Item("Dagger", 2, 3, false));
 	}
-	
+
 	public void removeItems(ArrayList<Item> boughtItems)
 	{
 		for(Item i : boughtItems)
@@ -22,17 +22,17 @@ public class Shop {
 			items.remove(i);
 		}
 	}
-	
+
 	public void addItems(Item soldItem)
 	{
 		items.add(soldItem);
 	}
-	
+
 	public void exit()
 	{
-		
+
 	}
-	
+
 	public ArrayList<Item> getItems()
 	{
 		return this.items;
