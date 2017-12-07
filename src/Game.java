@@ -42,7 +42,7 @@ public class Game {
 		}
 	}
 
-	public ArrayList<Item> loadItems()
+	private ArrayList<Item> loadItems()
 	{
 		ArrayList<Item> items = new ArrayList<Item>();
 		try{
@@ -70,6 +70,7 @@ public class Game {
 		Player player1 = new Player();
 		Gear gear1 = new Gear();
 		Inventory inventory1 = new Inventory();
+		ArrayList<Item> items = loadItems();
 		Stats stats1 = new Stats(1, 0, 0);
 		player1.assignRandomName();
 		player1.setGear(gear1);
@@ -77,7 +78,7 @@ public class Game {
 		player1.setStats(stats1);
 
 		Shop shop1 = new Shop();
-		GameStatus gamestatus1 = new GameStatus(player1, shop1);
+		GameStatus gamestatus1 = new GameStatus(player1, shop1, items);
 		//give the game is game status encompassing player (and all details), and shop, no adventure yet
 		this.status = gamestatus1;
 	}
@@ -159,6 +160,7 @@ public class Game {
 	}
 
 	public static void main(String[] args){
+		//testing code, must change Game.loadItems to public to run
 		Game g = new Game();
 		ArrayList<Item> items = g.loadItems();
 		for(int i = 0; i < items.size(); i++){

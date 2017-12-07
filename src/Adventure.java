@@ -3,7 +3,13 @@ import java.util.ArrayList;
 public class Adventure {
 	private int day;
 	private AdventureResult adventureResult;
-
+	private ArrayList<Item> gameItems;
+	
+	public Adventure(ArrayList<Item> items) {
+		this.gameItems = items;
+		this.setDay(1);
+	}
+	
 	public AdventureResult goAdventure(int notch, int strength)
 	{
 		System.out.println(" \nOff to go adventure... \n");
@@ -29,21 +35,10 @@ public class Adventure {
 	}
 
 	private ArrayList<Item> randomLoot(int notch){
-		ArrayList<Item> possibleLoot = new ArrayList<Item>();
-		Item item1 = new Item("Matches", 2, 1, false);
-		Item item2 = new Item("Bones", 1, 1, false);
-		Item item3 = new Item("Shiny Fork", 10, 4, false);
-		Item item4 = new Item("Fancy Rock", 21, 7, false);
-		Item item5 = new Item("Comically Large Knife", 45, 11, false);
-		possibleLoot.add(item1);
-		possibleLoot.add(item2);
-		possibleLoot.add(item3);
-		possibleLoot.add(item4);
-		possibleLoot.add(item5);
 
 		ArrayList<Item> actualLoot = new ArrayList<Item>();
-		for(int i = 0; i < possibleLoot.size(); i++){
-			Item currentItem = possibleLoot.get(i);
+		for(int i = 0; i < gameItems.size(); i++){
+			Item currentItem = gameItems.get(i);
 			int weight = Math.abs(currentItem.getStrength() - notch/4) + 5;
 			for(int j = 0; j < 10*(notch%4); j++){
 				if (Math.random() < 1.0/(double)weight){

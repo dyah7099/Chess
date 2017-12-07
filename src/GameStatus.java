@@ -7,11 +7,13 @@ public class GameStatus {
 	private Player player;
 	private Adventure adventure;
 	private Shop shop;
+	private ArrayList<Item> gameItems;
 
-	public GameStatus(Player _player, Shop _shop)
+	public GameStatus(Player _player, Shop _shop, ArrayList<Item> items)
 	{
 		this.player = _player;
 		this.shop = _shop;
+		this.gameItems = items;
 	}
 
 	public void printItems()
@@ -125,9 +127,8 @@ public class GameStatus {
 
 	public void goToAdventure()
 	{
-		Adventure adventure1 = new Adventure();
+		Adventure adventure1 = new Adventure(gameItems);
 		this.adventure = adventure1;
-		this.adventure.setDay(1);
 		String response;
 		do
 		{
