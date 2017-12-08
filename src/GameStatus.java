@@ -49,7 +49,7 @@ public class GameStatus {
 				{
 					if(response2.compareTo(i.getName()) == 0)
 					{
-						if(i.getWorth() < this.player.getStats().getCoins())
+						if(i.getWorth() <= this.player.getStats().getCoins())
 						{
 							boughtItems.add(i);
 							displayBoughtMessage(i.getName());
@@ -204,7 +204,7 @@ public class GameStatus {
 	private void displayEquipedMessage()
 	{
 		String equipMessage = "you have sucessfully equiped items";
-		String strengthMessage= "Your stength is now "+ this.player.getGear().getStrength()+"\n";
+		String strengthMessage= "Your strength is now "+ this.player.getGear().getStrength()+"\n";
 		System.out.println(equipMessage);
 		System.out.println(strengthMessage);
 	}
