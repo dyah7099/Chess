@@ -52,6 +52,7 @@ public class GameStatus {
 						if(i.getWorth() < this.player.getStats().getCoins())
 						{
 							boughtItems.add(i);
+							displayBoughtMessage(i.getName());
 						}
 						else
 						{
@@ -99,6 +100,7 @@ public class GameStatus {
 				}
 
 				this.player.updatePlayerEquip(equippedItems);
+				displayEquipedMessage();
 			}
 			else if(response.compareTo("sell") == 0)
 			{
@@ -110,14 +112,17 @@ public class GameStatus {
 					{
 						player.updatePlayerSell(i);
 						shop.addItems(i);
+						displaySoldMessage(response3);
 						break;
-					}
+					}	
 				}
+				
 			}
 
 		}while(response.compareTo("exit") != 0);
 
 	}
+
 
 	public void seeGear()
 	{
@@ -136,7 +141,8 @@ public class GameStatus {
 			AdventureResult adventureRes1 = this.adventure.goAdventure(player.getStats().getNotch(), this.player.getGear().getStrength());
 			if(adventureRes1.death) {
 				System.out.println("On day "+ adventure.getDay() + adventure.randomizeDeath());
-				System.out.println("Your character has been reset. \n");
+				System.out.println("Your character has been reset.");
+				System.out.println("The more days you adventure the higher your chance of dying, being a higher notch or having higher strength gives you a better chance of survival.\n");
 				this.player.resetPlayer();
 				response="exit";
 			}else {
@@ -177,6 +183,12 @@ public class GameStatus {
 		System.out.println(buyMessage);
 	}
 
+	private void displayBoughtMessage(String name)
+	{
+		String buyMessage = "You have bought "+ name;
+		System.out.println(buyMessage);
+	}	
+	
 	private void displayInventoryMessage()
 	{
 		String inventoryMessage = "\nWould you like to equip an item, sell an item, or return home? Type equip, sell, or exit.\n";
@@ -188,12 +200,27 @@ public class GameStatus {
 		String equipMessage = "\nEnter the name of the item that you would like to equip.\n";
 		System.out.println(equipMessage);
 	}
+	
+	private void displayEquipedMessage()
+	{
+		String equipMessage = "you have sucessfully equiped items";
+		String strengthMessage= "Your stength is now "+ this.player.getGear().getStrength()+"\n";
+		System.out.println(equipMessage);
+		System.out.println(strengthMessage);
+	}
 
 	private void displaySellMessage()
 	{
 		String sellMessage = "\nEnter the name of the item that you would like to sell.\n";
 		System.out.println(sellMessage);
 	}
+	
+	private void displaySoldMessage(String response)
+	{
+		String sellMessage = "You have sold your " +response;
+		System.out.println(sellMessage);
+	}	
+	
 
 	private void displayAdventureMessage()
 	{

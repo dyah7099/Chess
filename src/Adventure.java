@@ -41,7 +41,7 @@ public class Adventure {
 			Item currentItem = gameItems.get(i);
 			int weight = Math.abs(currentItem.getStrength() - notch/4) + 5;
 			for(int j = 0; j < 10*(notch%4); j++){
-				if (Math.random() < 1.0/(double)weight){
+				if (Math.random() < 1.0/((double)weight*20)){
 					actualLoot.add(currentItem);
 				}
 			}
@@ -55,10 +55,10 @@ public class Adventure {
 		//HARDCODED FOR TESTING NEED TO ADD RANDOMIZATION
 		AdventureResult adventureResult1 = new AdventureResult();
 		ArrayList<Item> items1 = randomLoot(notch);
-		adventureResult1.coins = (int)(5 * Math.random() + 5) * this.day/4; //5-9 coins per 4 days
+		adventureResult1.coins = (int)(3* Math.random() + 2) * this.day/4; //2-5 coins per 4 days
 		adventureResult1.xp = (int)(2 * Math.random() + 2) * this.day/4; //2-3 xp per 2 days
 		adventureResult1.loot = items1;
-		adventureResult1.death = Math.random()+(this.day-notch*2-strength)/10>.9 ? true : false;
+		adventureResult1.death = Math.random()>Math.pow(.93, (this.day/(notch*2+strength))) ? true : false;
 
 		//add randomization of items
 

@@ -47,7 +47,7 @@ public class Game {
 		ArrayList<Item> items = new ArrayList<Item>();
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Notches","root","root");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Notches","user","");
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Items");
 			while(rs.next()){
